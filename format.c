@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/01/14 17:58:20 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/01/26 17:49:44 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int		check_signs(char *s, int i)
 		c++;
 		i++;
 	}
-	if (!(diez == 4 && point == 12 && ret == 4))
+	printf("%i\n%i\n%i\n", diez, point, ret);
+	if (diez != 4 || point != 12 || ret != 4)
+		return (-1);
+//	printf("%i: %c\n", i, s[i -1]);
+
+	if (s[i] == '\n' || s[i] == '\0')
 		return (0);
-	i++;
-	if (s[i] == '\n')
-		return (1);
-	else if (s[i] == '\0')
-		return (2);
-	return (0);
+	return (-1);
 }
 
 int		check_nl(char *s, unsigned int i)
@@ -44,17 +44,19 @@ int		check_nl(char *s, unsigned int i)
 	unsigned int c;
 
 	c = 0;
+	i = 0;
 	while (c < 20)
 	{
 		if (s[i] == '\n')
 		{
-			if (c % 5 != 0)
-				return (0);
+			printf("%s%i\n", "check nl : entered if with c = ", c);
+			if (c != 5 && c != 10 && c != 15 && c != 20)
+				return (-1);
 		}
 		c++;
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	error()
@@ -65,31 +67,42 @@ void	error()
 
 void	format(int ac, char *board)
 {
-	unsigned int	i;
+	int result;
+	//unsigned int	i;
 
-	i = 0;
+	//i = 0;
 	if (ac != 2)
-		error();
-	while (check_signs(board, i * 20) == 1)
+		printf("error(1)");
+	result = check_signs(board, 0);
+	if (result == 0)
 	{
-		i++;
-		if (check_nl(board, i * 20) == 0)
-			error();
+		//i++;
+		if (check_nl(board, 20) == -1)
+			printf("error(2)");
 	}
-	printf("%s\n", "error nl");
-	if (check_signs(board, i * 20) == 0)
+	if (result == -1)
 	{
-		printf("%i\n", i);
-		error();
+	//	printf("%i\n", i);
+		printf("error(3)");
 	}
-	printf("%s\n", "end format");
+	printf("%s\n", "end");
 	
 }
 
 int		main()
 {
-	char *s = ".###\n...#\n....\n....\n";
+//	int offset;
+//	char *s = ".###\n...#\n....\n....\n\n####\n....\n....\n....\n";
+//	char *s = ".###\n...#\n....\n....\n";
+//	char *s = "####\n...#\n....\n....\n";
+	char *s = ".###.\n..#\n....\n....\n";
 	printf("%s", s);
+//	offset = 0;
+//	while()
+//	{
+//		format(2, &s[offset]);
+//		offset = offset + 21;
+//	}
 	format(2, s);
 	return (0);
 }
