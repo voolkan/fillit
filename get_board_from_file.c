@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   get_board_from_file.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 15:20:10 by scluzeau          #+#    #+#             */
-/*   Updated: 2015/12/04 15:20:11 by scluzeau         ###   ########.fr       */
+/*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
+/*   Updated: 2016/02/17 14:36:16 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "fillit.h"
 
-void	ft_putstr(char const *s)
+char		*get_board_from_file(char *path)
 {
-	write(1, s, ft_strlen(s));
+
 }
