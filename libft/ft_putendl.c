@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 18:40:37 by scluzeau         ###   ########.fr       */
+/*   Created: 2015/12/04 15:18:55 by scluzeau          #+#    #+#             */
+/*   Updated: 2015/12/04 15:18:57 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FILLIT_H__
-# define	__FILLIT_H__
+#include <libft.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <libft.h>
-
-int		check_signs(char *s, int i);
-int		check_nl(char *av);
-void	error();
-void	format (char *board);
-char		*get_board_from_file(char *path, int *nbr_pieces);
-
-#endif
+void	ft_putendl(char const *s)
+{
+	ft_putstr(s);
+	write(1, "\n", 1);
+}

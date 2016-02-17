@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 18:40:37 by scluzeau         ###   ########.fr       */
+/*   Created: 2015/12/04 15:26:57 by scluzeau          #+#    #+#             */
+/*   Updated: 2016/01/07 16:36:02 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FILLIT_H__
-# define	__FILLIT_H__
+#include <libft.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <libft.h>
+char	*ft_strtrim(char const *s)
+{
+	size_t		start;
+	size_t		end;
+	size_t		i;
 
-int		check_signs(char *s, int i);
-int		check_nl(char *av);
-void	error();
-void	format (char *board);
-char		*get_board_from_file(char *path, int *nbr_pieces);
-
-#endif
+	start = (size_t)-1;
+	end = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isspace(s[i]))
+		{
+			if (start == (size_t)-1)
+				start = i;
+			end = i;
+		}
+		i++;
+	}
+	if (start == (size_t)-1)
+		return (ft_strdup(""));
+	return (ft_strsub(s, start, ((end + 1) - start)));
+}

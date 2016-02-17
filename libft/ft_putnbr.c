@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 18:40:37 by scluzeau         ###   ########.fr       */
+/*   Created: 2015/12/04 15:19:33 by scluzeau          #+#    #+#             */
+/*   Updated: 2015/12/04 15:19:35 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FILLIT_H__
-# define	__FILLIT_H__
+#include <libft.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <libft.h>
+void	ft_putnbr(int n)
+{
+	long long int nn;
 
-int		check_signs(char *s, int i);
-int		check_nl(char *av);
-void	error();
-void	format (char *board);
-char		*get_board_from_file(char *path, int *nbr_pieces);
-
-#endif
+	nn = (long long int)n;
+	if (nn < 0)
+	{
+		ft_putchar('-');
+		nn = -nn;
+	}
+	if (nn >= 10)
+		ft_putnbr(nn / 10);
+	ft_putchar((nn % 10) + '0');
+}

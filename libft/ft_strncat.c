@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 18:40:37 by scluzeau         ###   ########.fr       */
+/*   Created: 2015/12/04 15:24:55 by scluzeau          #+#    #+#             */
+/*   Updated: 2015/12/04 15:24:57 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FILLIT_H__
-# define	__FILLIT_H__
+#include <libft.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <libft.h>
+char	*ft_strncat(char *s1, char const *s2, size_t n)
+{
+	size_t	i;
+	char	*ptr;
 
-int		check_signs(char *s, int i);
-int		check_nl(char *av);
-void	error();
-void	format (char *board);
-char		*get_board_from_file(char *path, int *nbr_pieces);
-
-#endif
+	ptr = s1;
+	while (*ptr++)
+		;
+	ptr--;
+	i = 0;
+	while (i < n)
+	{
+		ptr[i] = s2[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (s1);
+}

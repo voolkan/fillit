@@ -6,13 +6,98 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 14:36:16 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/02/17 18:59:40 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fcntl.h>
+#include <unistd.h>
 #include "fillit.h"
 
-char		*get_board_from_file(char *path)
-{
+#define BUFF_SIZE 21
 
+static size_t	count_chars(char *path)
+{
+	size_t 	total_chars;
+	int		fd;
+	ssize_t	bytes_count;
+	char	*buffer;
+
+	total_chars = 0;
+	// On ouvre le fichier 'path'
+	fd = open(path, O_RDONLY);
+	// Si le fichier n'existe pas ou n'est pas accessible en lecture
+	if (fd < 0)
+		error("file not found or not readable\n");
+	// On alloue l'espace memoire necessaire au buffer
+	buffer = (char *)ft_memalloc(sizeof(char) * BUFF_SIZE);
+	if (!buffer)
+		error("can't allocate memory for buffer\n");
+	// Boucle de lecture du fichier
+	while (bytes_count > 0)
+	{
+		// On lit BUFF_SIZE caracteres dans fd
+		// bytes_count vaudra le nombre de caracteres lus
+		bytes_count = read(fd, buffer, BUFF_SIZE);
+		total_chars += bytes_count;
+	}
+	// On ferme le fichier
+	close(fd);
+	// On libere la memoire
+	ft_memdel((void **)&buffer);
+	return(total_chars);
+}
+
+static void		cpy_chars(char *path, char *board)
+{
+	int		fd;
+	ssize_t	bytes_count;
+	int		i;
+	char	*buffer;
+
+	i = 0;
+	bytes_count = 1;
+	// On ouvre le fichier 'path'
+	fd = open(path, O_RDONLY);
+	// Si le fichier n'existe pas ou n'est pas accessible en lecture
+	if (fd < 0)
+		error("file not found or not readable\n");
+	// On alloue l'espace memoire necessaire au buffer
+	buffer = (char *)ft_memalloc(sizeof(char) * BUFF_SIZE);
+	if (!buffer)
+		error("can't allocate memory for buffer\n");
+	// Boucle de lecture du fichier
+	while (bytes_count > 0)
+	{
+		// On lit BUFF_SIZE caracteres dans fd
+		// bytes_count vaudra le nombre de caracteres lus
+		bytes_count = read(fd, buffer, BUFF_SIZE);
+		ft_strcpy(&board[i * BUFF_SIZE], buffer);
+		i++;
+	}
+	// On ferme le fichier
+	close(fd);
+	// On libere la memoire
+	ft_memdel((void **)&buffer);
+}
+
+char		*get_board_from_file(char *path, int *nbr_pieces)
+{
+	char	*board;
+	size_t	total_chars;
+
+	// Initialisations
+	// On recupere le nombre de caracteres dans le fichier
+	total_chars = count_chars(path);
+	*nbr_pieces = 0;
+	// On alloue un espace memoire de la taille du nombre de
+	// caracteres + 1
+	board = (char *)ft_memalloc(sizeof(char) * (total_chars + 1));
+	if (!board)
+		error("can't allocate memory for board\n");
+	board[total_chars] = '\0';
+	cpy_chars(path, board);
+	// On libere la memoire
+	//ft_memdel((void **)&board);
+	return (board);
 }

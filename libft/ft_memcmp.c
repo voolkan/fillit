@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 18:40:37 by scluzeau         ###   ########.fr       */
+/*   Created: 2015/12/04 15:16:36 by scluzeau          #+#    #+#             */
+/*   Updated: 2015/12/04 15:16:37 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FILLIT_H__
-# define	__FILLIT_H__
+#include <libft.h>
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <libft.h>
+int		ft_memcmp(void const *s1, void const *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	c1;
+	unsigned char	c2;
 
-int		check_signs(char *s, int i);
-int		check_nl(char *av);
-void	error();
-void	format (char *board);
-char		*get_board_from_file(char *path, int *nbr_pieces);
-
-#endif
+	i = 0;
+	while (i < n)
+	{
+		c1 = ((unsigned char*)s1)[i];
+		c2 = ((unsigned char*)s2)[i];
+		if (c1 != c2)
+			return (c1 - c2);
+		i++;
+	}
+	return (0);
+}
