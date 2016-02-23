@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 18:59:40 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/02/23 15:47:33 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static size_t	count_chars(char *path)
 	if (!buffer)
 		error("can't allocate memory for buffer\n");
 	// Boucle de lecture du fichier
+	bytes_count = 1;
 	while (bytes_count > 0)
 	{
 		// On lit BUFF_SIZE caracteres dans fd
@@ -41,6 +42,8 @@ static size_t	count_chars(char *path)
 		bytes_count = read(fd, buffer, BUFF_SIZE);
 		total_chars += bytes_count;
 	}
+	if (bytes_count < 0)
+		error("file read error");
 	// On ferme le fichier
 	close(fd);
 	// On libere la memoire
@@ -48,12 +51,12 @@ static size_t	count_chars(char *path)
 	return(total_chars);
 }
 
-static void		cpy_chars(char *path, char *board)
+static size_t		cpy_chars(char *path, char *board)
 {
 	int		fd;
 	ssize_t	bytes_count;
-	int		i;
 	char	*buffer;
+	size_t	i;
 
 	i = 0;
 	bytes_count = 1;
@@ -72,13 +75,17 @@ static void		cpy_chars(char *path, char *board)
 		// On lit BUFF_SIZE caracteres dans fd
 		// bytes_count vaudra le nombre de caracteres lus
 		bytes_count = read(fd, buffer, BUFF_SIZE);
-		ft_strcpy(&board[i * BUFF_SIZE], buffer);
-		i++;
+		if (bytes_count > 0)
+		{
+			ft_strcpy(&board[i * BUFF_SIZE], buffer);
+			i++;
+		}
 	}
 	// On ferme le fichier
 	close(fd);
 	// On libere la memoire
 	ft_memdel((void **)&buffer);
+	return (i);
 }
 
 char		*get_board_from_file(char *path, int *nbr_pieces)
@@ -95,8 +102,8 @@ char		*get_board_from_file(char *path, int *nbr_pieces)
 	board = (char *)ft_memalloc(sizeof(char) * (total_chars + 1));
 	if (!board)
 		error("can't allocate memory for board\n");
+	*nbr_pieces = cpy_chars(path, board);
 	board[total_chars] = '\0';
-	cpy_chars(path, board);
 	// On libere la memoire
 	//ft_memdel((void **)&board);
 	return (board);

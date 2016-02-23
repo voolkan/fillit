@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/17 18:58:11 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/02/23 15:47:04 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,20 @@ int		main(int argc, char **argv)
 {
 	char 	*s;
 	int		nbr_pieces;
+	int		i;
 
 	if (argc != 2)
 		error("argument invalid");
 	s = get_board_from_file(argv[1], &nbr_pieces);
+	i = nbr_pieces;
+	ft_putnbr(nbr_pieces);
 	if(s)
 		ft_putstr(s);
+	while (i > 0)
+	{
+		format(s);
+		i--;
+	}
 	//format(s);
 	return (0);
 }
