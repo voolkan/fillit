@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/02/23 15:47:04 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/02/28 21:03:15 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,12 @@ void	format(char *board)
 	
 }
 
+void    display_usage(void)
+{
+    ft_putendl("usage: fillit input_file");
+    exit (1);
+}
+
 int		main(int argc, char **argv)
 {
 	char 	*s;
@@ -70,11 +76,12 @@ int		main(int argc, char **argv)
 	int		i;
 
 	if (argc != 2)
-		error("argument invalid");
+		display_usage();
 	s = get_board_from_file(argv[1], &nbr_pieces);
 	i = nbr_pieces;
 	ft_putnbr(nbr_pieces);
-	if(s)
+	ft_putendl(" pieces detectees");
+	if (s)
 		ft_putstr(s);
 	while (i > 0)
 	{
