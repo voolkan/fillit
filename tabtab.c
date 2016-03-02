@@ -6,9 +6,11 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 12:49:54 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/02 13:25:19 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/03/02 16:39:12 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fillit.h"
 
 char	**tabtab(char *s, int nbr_pieces)
 {
@@ -17,16 +19,12 @@ char	**tabtab(char *s, int nbr_pieces)
 
 	i = 0;
 	tab = (char **)malloc(sizeof(char *) * nbr_pieces);
-//	if (!tab)
-//	error("can't allocate tabtab\n");
+	if (!tab)
+		error("can't allocate tabtab\n");
 	while (i <= nbr_pieces)
 	{
-		tab[i] = ft_strsub(s, (21 * i), 21);
+		tab[i] = ft_strsub(s, (21 * i), 20);
 		i++;
 	}
-}
-
-int		main(int ac, char **av)
-{
-	
+	return (tab);
 }

@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   tabtab.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/02 15:39:54 by scluzeau         ###   ########.fr       */
+/*   Created: 2016/03/02 12:49:54 by scluzeau          #+#    #+#             */
+/*   Updated: 2016/03/02 13:25:19 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FILLIT_H__
-# define	__FILLIT_H__
+char	**tabtab(char *s, int nbr_pieces)
+{
+	char			**tab;
+	unsigned int	i;
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <libft.h>
+	i = 0;
+	tab = (char **)malloc(sizeof(char *) * nbr_pieces);
+//	if (!tab)
+//	error("can't allocate tabtab\n");
+	while (i <= nbr_pieces)
+	{
+		tab[i] = ft_strsub(s, (21 * i), 21);
+		i++;
+	}
+}
 
-int		check_signs(char *s);
-int		check_nl(char *av);
-void	error();
-void	format (char *board);
-char	*get_board_from_file(char *path, int *nbr_pieces);
-char	**tabtab(char *s, int nbr_pieces);
-
-#endif
+int		main(int ac, char **av)
+{
+	
+}

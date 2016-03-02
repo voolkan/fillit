@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/02 13:25:28 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/03/02 16:42:22 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,11 @@ void	error(char *str)
 
 void	format(char *board)
 {
-
 	if (check_signs(board) < 0)
 		error("error(error pieces)\n");
 	if (check_nl(board) < 0)
 		error("error(fuck nl)\n");
-	printf("%s\n", "end");
-	
+	ft_putstr("end\n");
 }
 
 void	display_usage(void)
@@ -73,15 +71,30 @@ int		main(int argc, char **argv)
 	char 	*s;
 	int		nbr_pieces;
 	int		i;
+	int		c;
+	char	**tab;
 
+	c = 0;
 	if (argc != 2)
 		display_usage();
 	s = get_board_from_file(argv[1], &nbr_pieces);
 	i = nbr_pieces;
 	ft_putnbr(nbr_pieces);
 	ft_putendl(" pieces detectees");
-	if (s)
-		ft_putstr(s);
-	format(s);
+	tab = tabtab(s, nbr_pieces);
+	while (c < nbr_pieces)
+	{
+		ft_putstr("---\n");
+		if (tab[c])
+			ft_putstr(tab[c]);
+		else
+			ft_putstr("WTF");
+		ft_putstr("---\n");
+		format(tab[c]);
+		c++;
+	}
+//	if (s)
+//		ft_putstr(s);
+//	format(s);
 	return (0);
 }
