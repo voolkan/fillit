@@ -6,9 +6,11 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 13:51:00 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/02 11:56:23 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/03/04 15:38:03 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fillit.h"
 
 int		forest_of_if2(char *s, int i)
 {
@@ -56,4 +58,14 @@ int		forest_of_if(char *s, int i)
 	if (s[i] == '#' && s[i + 1] == '#' && s[i + 5] == '#' && s[i + 6] == '#')
 		return (11);
 	return (forest_of_if2(s, i));
+}
+
+int		check_diez(char *s)
+{
+	int		i;
+
+	i = 0;
+	while(s[i] != '#')
+		i++;
+	return (forest_of_if(s, i));
 }

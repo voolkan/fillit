@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tabtab.c                                           :+:      :+:    :+:   */
+/*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/02 12:49:54 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/04 11:51:11 by scluzeau         ###   ########.fr       */
+/*   Created: 2016/03/04 15:49:13 by scluzeau          #+#    #+#             */
+/*   Updated: 2016/03/04 17:36:19 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**tabtab(char *s, int nbr_pieces)
+unsigned int	get_minsize(unsigned int nbr_pieces)
+
 {
-	char			**tab;
 	unsigned int	i;
 
 	i = 0;
-	tab = (char **)malloc(sizeof(char *) * nbr_pieces + 1);
-	if (!tab)
-		error("can't allocate tabtab\n");
-	while (i <= nbr_pieces)
+	while((i * i) < (nbr_pieces * 4))
+		i++;
+	return (i);
+}
+
+char	**create_board(unsigned int board_size)
+{
+	char	**board;
+	int		i;
+
+	i = 0;
+	board = (char **)malloc(sizeof(char *) * board_size);
+	if(!board)
+		error("alloc board_size");
+	while(i != board_size)
 	{
-		tab[i] = ft_strsub(s, (21 * i), 20);
+		board[i] = (char *)malloc(sizeof(char) * (board_size + 1));
 		i++;
 	}
-	return (tab);
+	return (board);
 }
