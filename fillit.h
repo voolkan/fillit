@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/04 15:46:40 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/03/07 20:26:28 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void			error();
 void			display_usage();
 char			*get_board_from_file(char *path, int *nbr_pieces);
 char			**tabtab(char *s, int nbr_pieces);
-
+void			phase_two(int *tab_pieces, int nbr_pieces);
+unsigned int	get_minsize(unsigned int nbr_pieces);
+char			**create_board(unsigned int board_size);
 #endif

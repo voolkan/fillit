@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 15:41:48 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/04 17:36:17 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/03/07 20:23:07 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		main(int argc, char **argv)
 		ft_putnbr(tab_pieces[c]);
 		c++;
 	}
-	phase_two(tab_pieces);
+	phase_two(tab_pieces, nbr_pieces);
 	return (0);
 }
 
