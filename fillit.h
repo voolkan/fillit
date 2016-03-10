@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/07 20:26:28 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/03/10 17:31:12 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,7 @@ char			**tabtab(char *s, int nbr_pieces);
 void			phase_two(int *tab_pieces, int nbr_pieces);
 unsigned int	get_minsize(unsigned int nbr_pieces);
 char			**create_board(unsigned int board_size);
+void			print(char **board,unsigned int size);
+char			**dots(char **board, unsigned int size);
+char			**boisdif(int type, char **board, unsigned int l, unsigned int c, char letter);
 #endif

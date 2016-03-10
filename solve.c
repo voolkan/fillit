@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 15:49:13 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/07 21:01:10 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/03/10 17:22:28 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ char	**create_board(unsigned int board_size)
 		error("alloc board_size");
 	while(i != board_size)
 	{
-		board[i] = (char *)malloc(sizeof(char) * (board_size + 1));
+		board[i] = (char *)malloc(sizeof(char) * (board_size));
 		i++;
 	}
 	return (board);
 }
 
-void	fill(char **s, int i, int type)
+/*void	fill(char **s, int i, int type)
 {
 
 
 }
+*/

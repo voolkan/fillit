@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/04 15:43:55 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/03/10 16:49:25 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	format(char *board)
 		error("error(error pieces)\n");
 	if (check_nl(board) < 0)
 		error("error(fuck nl)\n");
-	ft_putstr("end\n");
+//	ft_putstr("end\n");
 }
 
 void	display_usage(void)
