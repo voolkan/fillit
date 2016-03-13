@@ -6,13 +6,13 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 17:07:46 by theherbr          #+#    #+#             */
-/*   Updated: 2016/03/10 18:42:34 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/03/13 18:13:58 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**boisdif(int type, char **board, unsigned int l, unsigned int c, char letter)
+char	**fill_pos(int type, char **board, unsigned int l, unsigned int c, char letter)
 {
 	if (type == 1)
 	{
