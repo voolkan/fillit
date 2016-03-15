@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 15:41:48 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/13 16:52:19 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/03/15 15:14:45 by scluzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	phase_two(int *tab_pieces, int nbr_pieces)
 	while (test_type <= 19)
 	{
 		board = dots(board, size);
-		board = boisdif(test_type, board, 0, 0, letter++);
+		board = fill_pos(test_type, board, 0, 0, letter);
 		ft_putstr("type ");
 		ft_putnbr(test_type);
 		ft_putendl("");
