@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solve.c                                            :+:      :+:    :+:   */
+/*   board.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/04 15:49:13 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/15 16:53:04 by scluzeau         ###   ########.fr       */
+/*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
+/*   Updated: 2016/03/18 16:34:56 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ char	**create_board(unsigned int board_size)
 	return (board);
 }
 
-/*void	fill(char **s, int i, int type)
+void    free_board(char **board, int nbr_pieces)
 {
+	int i;
 
-
+	i = 0;
+	while (i <= nbr_pieces)
+		free(board[i]);
+	free(board);
 }
-*/
