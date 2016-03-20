@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/04 15:41:48 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/18 17:26:44 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/03/21 00:23:12 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	phase_two(int *tab_pieces, int nbr_pieces)
 
 	tab_i = 0;
 	size = get_minsize(nbr_pieces);
-	board = create_board(size);
+	board = create_board(size); // une seule fn
 	board = dots(board, size);
 	empty = create_board(size);
 	empty = dots(board, size);
@@ -72,11 +72,11 @@ void	phase_two(int *tab_pieces, int nbr_pieces)
 	while (bt(board, size, letter, tab_pieces, tab_i, nbr_pieces) == empty)
 	{
 		ft_putendl("++size");
-		free_board(board);
+		free_board(board, nbr_pieces);
 		board = create_board(++size);
 		board = dots(board, size);
 	}
-	free_board(board);
+	free_board(board, nbr_pieces);
 }
 
 void	print(char **board, unsigned int size)
