@@ -6,33 +6,32 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
-/*   Updated: 2016/03/20 20:20:10 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/03 14:22:26 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
 unsigned int	get_minsize(unsigned int nbr_pieces)
-
 {
 	unsigned int	i;
 
 	i = 0;
-	while((i * i) < (nbr_pieces * 4))
+	while ((i * i) < (nbr_pieces * 4))
 		i++;
 	return (i);
 }
 
-char	**create_board(unsigned int board_size)
+char			**create_board(unsigned int board_size)
 {
 	char	**board;
 	int		i;
 
 	i = 0;
 	board = (char **)malloc(sizeof(char *) * board_size);
-	if(!board)
+	if (!board)
 		error("alloc board_size");
-	while(i != board_size)
+	while (i != board_size)
 	{
 		board[i] = (char *)malloc(sizeof(char) * (board_size));
 		i++;
@@ -40,7 +39,7 @@ char	**create_board(unsigned int board_size)
 	return (board);
 }
 
-void    free_board(char **board, int nbr_pieces)
+void			free_board(char **board, int nbr_pieces)
 {
 	int i;
 
@@ -50,5 +49,37 @@ void    free_board(char **board, int nbr_pieces)
 		free(board[i]);
 		i++;
 	}
-	free(board);
+//	free(board);
+}
+
+void			print(char **board, unsigned int size)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < ft)
+	{
+		putendl_size(board[i]);
+		i++;
+	}
+}
+
+char			**dots(char **board, unsigned int size)
+{
+	unsigned int i;
+	unsigned int j;
+
+	i = 0;
+	j = 0;
+	while (i < size)
+	{
+		while (j < size)
+		{
+			board[i][j] = '.';
+			j++;
+		}
+		i++;
+		j = 0;
+	}
+	return (board);
 }

@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/15 16:50:48 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/04/03 17:41:58 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int		check_signs(char *s)
 	}
 	if (diez != 4 || point != 12 || ret != 4)
 		return (-1);
-
 	if (s[i] == '\n' || s[i] == '\0')
 		return (0);
 	return (-1);
@@ -57,7 +56,6 @@ void	format(char *board)
 		error("error(error pieces)\n");
 	if (check_nl(board) < 0)
 		error("error(fuck nl)\n");
-//	ft_putstr("end\n");
 }
 
 void	display_usage(void)
