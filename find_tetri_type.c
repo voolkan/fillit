@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 13:51:00 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/04 14:01:46 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/04 15:23:17 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		forest_of_if2(char *s, int i)
 		return (18);
 	if (s[i] == '#' && s[i + 1] == '#' && s[i + 4] == '#' && s[i + 5] == '#')
 		return (19);
+	error("err tetri type");
 	return (-1);
 }
 

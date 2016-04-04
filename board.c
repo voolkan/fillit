@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/04 14:09:17 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/04 15:43:15 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void			print(char **board, unsigned int size)
 	}
 }
 
-char			**dots(char **board, unsigned int size)
+char			**dotify(char **board, unsigned int size)
 {
 	unsigned int i;
 	unsigned int j;

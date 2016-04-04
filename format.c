@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/03 17:41:58 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/04 15:11:29 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		check_nl(char *s)
 void	error(char *str)
 {
 	ft_putstr(str);
-	exit (1);
+	exit(1);
 }
 
 void	format(char *board)
@@ -61,5 +61,5 @@ void	format(char *board)
 void	display_usage(void)
 {
 	ft_putendl("usage: fillit input_file");
-	exit (1);
+	exit(1);
 }

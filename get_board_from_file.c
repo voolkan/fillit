@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/04 15:45:05 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/04/04 15:25:17 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static size_t	count_chars(char *path)
 {
-	size_t 	total_chars;
+	size_t	total_chars;
 	int		fd;
 	ssize_t	bytes_count;
 	char	*buffer;
@@ -40,10 +40,10 @@ static size_t	count_chars(char *path)
 		error("file read error");
 	close(fd);
 	ft_memdel((void **)&buffer);
-	return(total_chars);
+	return (total_chars);
 }
 
-static size_t		cpy_chars(char *path, char *board)
+static size_t	cpy_chars(char *path, char *board)
 {
 	int		fd;
 	ssize_t	bytes_count;
@@ -72,7 +72,7 @@ static size_t		cpy_chars(char *path, char *board)
 	return (i);
 }
 
-char		*get_board_from_file(char *path, int *nbr_pieces)
+char			*get_board_from_file(char *path, int *nbr_pieces)
 {
 	char	*board;
 	size_t	total_chars;
