@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/03 14:32:40 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/04 14:07:03 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ struct			s_piece {
 	unsigned int	y;
 };
 
-int				check_signs(char *s);
+int				find_tetri_type(char *s);
 int				check_nl(char *av);
 int				forest_of_if(char *s, int i);
 int				forest_of_if2(char *s, int i);

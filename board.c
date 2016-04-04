@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/03 14:22:26 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/04 14:09:17 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void			print(char **board, unsigned int size)
 	unsigned int	i;
 
 	i = 0;
-	while (i < ft)
+	while (i < size)
 	{
-		putendl_size(board[i]);
+		ft_putendl(board[i]);
 		i++;
 	}
 }

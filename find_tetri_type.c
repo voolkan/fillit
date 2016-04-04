@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 13:51:00 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/04 15:38:03 by scluzeau         ###   ########.fr       */
+/*   Updated: 2016/04/04 14:01:46 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		forest_of_if(char *s, int i)
 	return (forest_of_if2(s, i));
 }
 
-int		check_diez(char *s)
+int		find_tetri_type(char *s)
 {
 	int		i;
 
