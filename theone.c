@@ -6,13 +6,13 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 17:21:18 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/04 18:30:24 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/06 19:53:19 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fliit.h"
 
-void	 theone(char **board, unsigned int siz)
+void	 theone(char **board, unsigned int size, struct s_pieces *tab_pieces, int tab_i)
 {
 	unsigned int	x;
 	unsigned int	y;
@@ -28,18 +28,23 @@ void	 theone(char **board, unsigned int siz)
 			ft_putendl("can we place something here ?");
 			if (check_pos(tab_pieces, tab_i))
 			{
-				ft_putendl("YES WE CAN");
-
+				ft_putendl("Yes we can !");
+				fill_pos();
+				if (tab_i + 1 == nbr_pieces)
+				{
+					ft_putendl("ENDING :");
+					print(board, size);
+					exit(0);
+				}
+				theone();
+				erase_piece();
 			}
+			else
+				ft_putendl("Nope.");
 			x++;
 		}
 		x = 0;
 		y++;
 	}
-	ft_putendl("Dammit, we must increase the size !");
-	size++;
-	free_board(board, nbr_pieces);
-	board = create_board(size);
-	board = dotify(board, size);
-	theone();
+	return ();
 }
