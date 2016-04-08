@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/04 15:43:15 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/08 18:25:28 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ char			**create_board(unsigned int board_size)
 	return (board);
 }
 
-void			free_board(char **board, int nbr_pieces)
+void			free_board(char **board, int n)
 {
 	int i;
 
 	i = 0;
-	while (i < nbr_pieces)
+	while (i < n)
 	{
 		free(board[i]);
 		i++;
 	}
-//	free(board);
+	free(board);
 }
 
 void			print(char **board, unsigned int size)
