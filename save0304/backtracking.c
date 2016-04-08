@@ -6,7 +6,7 @@
 /*   By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 15:36:51 by theherbr          #+#    #+#             */
-/*   Updated: 2016/03/20 20:52:20 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/08 17:51:24 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	**bt(char **board, unsigned int size, char letter, int *tab_pieces, int tab
 	old_board = board;
 	ft_putendl("starting with :");
 	print(board, size);
+	ft_putendl("coucou");
 	while (y < size)
 	{
 		while (x < size)

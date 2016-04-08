@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 17:04:31 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/06 19:53:31 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/08 17:52:24 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,22 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-void	solve(struct s_pieces *tab_pieces, int nbr_pieces)
+void	solve(struct s_piece *tab_pieces, int nbr_pieces)
 {
 	int				tab_i;
 	unsigned int	size;
 	char			**board;
 
+	tab_i = 0;
 	size = get_minsize(nbr_pieces);
 	board = create_board(size);
 	board = dotify(board, size);
-	ft_putendl("board created with minsize");
-	while ()
+//	ft_putendl("board created with minsize");
+	while (backtrack(board, size, tab_pieces, tab_i, nbr_pieces) == 888)
 	{
-		ft_putendl("Dammit, we must increase the size !");
+		ft_putendl("\n-- increasing the size !");
 		size++;
+		tab_i = 0;
 		free_board(board, nbr_pieces);
 		board = create_board(size);
 		board = dotify(board, size);
