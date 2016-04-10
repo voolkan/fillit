@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 17:04:31 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/08 18:25:30 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/10 17:45:07 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ int		main(int argc, char **argv)
 	char				**tab;
 	struct s_piece		*tab_pieces;
 
-	tab_pieces = NULL;
-	tab_pieces = malloc(nbr_pieces * sizeof(struct s_piece));
-	if (!tab_pieces)
-		error("alloc tab_pieces");
 	if (argc != 2)
 		display_usage();
 	raw_board = get_board_from_file(argv[1], &nbr_pieces);
@@ -37,6 +33,10 @@ int		main(int argc, char **argv)
 	}
 	c = 0;
 	letter = 'A';
+	tab_pieces = NULL;
+	tab_pieces = malloc(nbr_pieces * sizeof(struct s_piece));
+	if (!tab_pieces)
+		error("alloc tab_pieces");
 	while (c < nbr_pieces)
 	{
 		tab_pieces[c].type = find_tetri_type(tab[c]);
@@ -44,6 +44,7 @@ int		main(int argc, char **argv)
 		letter++;
 		c++;
 	}
+	free(raw_board);
 	solve(tab_pieces, nbr_pieces);
 	return (0);
 }
@@ -61,7 +62,7 @@ void	solve(struct s_piece *tab_pieces, int nbr_pieces)
 //	ft_putendl("board created with minsize");
 	while (backtrack(board, size, tab_pieces, tab_i, nbr_pieces) == 888)
 	{
-		ft_putendl("\n-- increasing the size !");
+//		ft_putendl("increasing the size !");
 		size++;
 		tab_i = 0;
 		free_board(board, size);

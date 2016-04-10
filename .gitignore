@@ -3,3 +3,4 @@ fillit
 a.out
 */*.o
 #*#
+.dSYM

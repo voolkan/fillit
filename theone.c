@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 17:21:18 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/08 18:10:03 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/10 15:53:29 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		backtrack(char **board, unsigned int size, struct s_piece *tab_pieces, int 
 	x = 0;
 	y = 0;
 //	ft_putendl("STARTING. We have now :");
-	print(board, size);
-	ft_putendl("");
+//	print(board, size);
+//	ft_putendl("");
 	while (y < size)
 	{
 		while (x < size)
