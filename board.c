@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/10 16:51:50 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/18 01:24:17 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void			print(char **board, unsigned int size)
 	i = 0;
 	while (i < size)
 	{
+//		ft_putnbr(i);
+//		ft_putstr(": ");
 		ft_putendl(board[i]);
 		i++;
 	}
@@ -78,6 +80,7 @@ char			**dotify(char **board, unsigned int size)
 			board[i][j] = '.';
 			j++;
 		}
+		board[i][j] = '\0';
 		i++;
 		j = 0;
 	}

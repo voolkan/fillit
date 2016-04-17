@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/04 15:11:29 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/18 01:29:25 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int		check_nl(char *s)
 
 void	error(char *str)
 {
+	ft_putstr("error\n");
+	exit(1);
 	ft_putstr(str);
 	exit(1);
 }
