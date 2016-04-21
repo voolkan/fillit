@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 17:04:31 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/21 01:19:46 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/22 01:19:59 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		display_usage();
 	raw_board = get_board_from_file(argv[1], &nbr_pieces);
+	if (nbr_pieces == 0)
+		error();
 	tab = tabtab(raw_board, nbr_pieces);
+
 	c = 0;
 	while (c < nbr_pieces)
 	{
@@ -63,13 +66,13 @@ void	solve(struct s_piece *tab_pieces, int nbr_pieces)
 	while (backtrack(board, size, tab_pieces, tab_i, nbr_pieces) == 888)
 	{
 //		ft_putendl("increasing the size !");
-		size++;
 		tab_i = 0;
-		ft_putstr("going to free, size =");
-		ft_putnbr(size);
-		ft_putendl(", and this is the board :");
-		print(board, size);
+//		ft_putstr("going to free, size =");
+//		ft_putnbr(size);
+//		ft_putendl(", and this is the board :");
+//		print(board, size);
 		free_board(board, size);
+		size++;
 		board = create_board(size);
 		board = dotify(board, size);
 	}
