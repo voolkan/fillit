@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/03 17:04:31 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/10 17:45:07 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/21 01:19:46 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ void	solve(struct s_piece *tab_pieces, int nbr_pieces)
 //		ft_putendl("increasing the size !");
 		size++;
 		tab_i = 0;
+		ft_putstr("going to free, size =");
+		ft_putnbr(size);
+		ft_putendl(", and this is the board :");
+		print(board, size);
 		free_board(board, size);
 		board = create_board(size);
 		board = dotify(board, size);
