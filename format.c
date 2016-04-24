@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/18 01:29:25 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/25 01:29:22 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,17 @@ int		check_nl(char *s)
 	return (0);
 }
 
-void	error(char *str)
+void	error()
 {
 	ft_putstr("error\n");
 	exit(1);
-	ft_putstr(str);
-	exit(1);
 }
 
-void	format(char *board)
+void	check_format(char *tetri)
 {
-	if (check_signs(board) < 0)
+	if (check_signs(tetri) < 0)
 		error("error(error pieces)\n");
-	if (check_nl(board) < 0)
+	if (check_nl(tetri) < 0)
 		error("error(fuck nl)\n");
 }
 
@@ -64,4 +62,10 @@ void	display_usage(void)
 {
 	ft_putendl("usage: fillit input_file");
 	exit(1);
+}
+
+void	check_extra_nl(char *board, int nbr_pieces)
+{
+	if (board[nbr_pieces * 19 + 1] == '\n')
+		error();
 }

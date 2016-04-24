@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newmain.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/03 17:04:31 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/22 01:19:59 by theherbr         ###   ########.fr       */
+/*   Created: 2016/04/25 00:10:33 by theherbr          #+#    #+#             */
+/*   Updated: 2016/04/25 01:29:24 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,17 @@ int		main(int argc, char **argv)
 	if (argc != 2)
 		display_usage();
 	raw_board = get_board_from_file(argv[1], &nbr_pieces);
+
 	if (nbr_pieces == 0)
 		error();
+//	if (raw_board[nbr_pieces * 19 + 1] == '\n')
+//		error();
+	check_extra_nl(raw_board, nbr_pieces);
 	tab = tabtab(raw_board, nbr_pieces);
-
 	c = 0;
 	while (c < nbr_pieces)
 	{
-		format(tab[c]);
+		check_format(tab[c]);
 		c++;
 	}
 	c = 0;

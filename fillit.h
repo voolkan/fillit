@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/08 16:00:02 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/25 01:30:00 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int				check_nl(char *av);
 int				forest_of_if(char *s, int i);
 int				forest_of_if2(char *s, int i);
 int				check_diez(char *s);
-void			format (char *board);
+void			check_format(char *board);
+void			check_extra_nl(char *board, int nbr_pieces);
 void			error();					//verif avant rendu
 void			display_usage();
 char			*get_board_from_file(char *path, int *nbr_pieces);
@@ -41,10 +42,7 @@ char			**dotify(char **board, unsigned int size);
 char			**fill_pos(int type, char **board, unsigned int l, unsigned int c, char letter);
 int				check_pos(int type, char **board, unsigned int l, unsigned int c, unsigned int size);
 char			**erase_pos(int type, char **board, unsigned int l, unsigned int c);
-//char			**bt(char **board, unsigned int size, char letter,
-//					int *tab_pieces, int tab_i, int nbr_pieces);
 void			free_board(char **board, int nbr_pieces);
-//void			solve(s_piece *tab_pieces, int nbr_pieces);
 void			solve(struct s_piece *tab_pieces, int nbr_pieces);
 int				backtrack(char **board, unsigned int size, struct s_piece *tab_pieces, int tab_i, int nbr_pieces);
 #endif
