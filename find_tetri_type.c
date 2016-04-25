@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 13:51:00 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/04 15:23:17 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/25 18:58:40 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		find_tetri_type(char *s)
 	int		i;
 
 	i = 0;
-	while(s[i] != '#')
+	while (s[i] != '#')
 		i++;
 	return (forest_of_if(s, i));
 }

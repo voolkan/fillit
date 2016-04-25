@@ -6,7 +6,7 @@
 /*   By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 00:10:33 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/25 01:29:24 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/25 20:56:43 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int		main(int argc, char **argv)
 
 	if (nbr_pieces == 0)
 		error();
-//	if (raw_board[nbr_pieces * 19 + 1] == '\n')
+//	if (raw_board[nbr_pieces * 20 + 1] != '\0')
 //		error();
-	check_extra_nl(raw_board, nbr_pieces);
+//	check_extra_nl(raw_board, nbr_pieces);
 	tab = tabtab(raw_board, nbr_pieces);
 	c = 0;
 	while (c < nbr_pieces)
@@ -38,11 +38,11 @@ int		main(int argc, char **argv)
 		c++;
 	}
 	c = 0;
-	letter = 'A';
 	tab_pieces = NULL;
 	tab_pieces = malloc(nbr_pieces * sizeof(struct s_piece));
 	if (!tab_pieces)
 		error("alloc tab_pieces");
+	letter = 'A';
 	while (c < nbr_pieces)
 	{
 		tab_pieces[c].type = find_tetri_type(tab[c]);
@@ -51,6 +51,7 @@ int		main(int argc, char **argv)
 		c++;
 	}
 	free(raw_board);
+//	ft_putendl("part2");
 	solve(tab_pieces, nbr_pieces);
 	return (0);
 }

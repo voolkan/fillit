@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/22 01:18:17 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/25 18:59:57 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static size_t	cpy_chars(char *path, char *board)
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		error("file not found or not readable\n");
-	//buffer = (char *)ft_memalloc(sizeof(char) * BUFF_SIZE);
 	if (!buffer)
 		error("can't allocate memory for buffer\n");
 	while (bytes_count > 0)
@@ -69,7 +68,6 @@ static size_t	cpy_chars(char *path, char *board)
 		}
 	}
 	close(fd);
-	//ft_memdel((void **)&buffer);
 	return (i);
 }
 
