@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/25 01:30:00 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/26 16:57:46 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int				check_diez(char *s);
 void			check_format(char *board);
 void			check_extra_nl(char *board, int nbr_pieces);
 void			error();					//verif avant rendu
-void			display_usage();
+void			check_argc(int argc);
 char			*get_board_from_file(char *path, int *nbr_pieces);
 char			**tabtab(char *s, int nbr_pieces);
 unsigned int	get_minsize(unsigned int nbr_pieces);
