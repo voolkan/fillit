@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/25 18:59:57 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/27 17:15:02 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ char			*get_board_from_file(char *path, int *nbr_pieces)
 	if (!board)
 		error("can't allocate memory for board\n");
 	*nbr_pieces = cpy_chars(path, board);
+	if (nbr_pieces == 0)
+		error();
 	board[total_chars] = '\0';
 	return (board);
 }

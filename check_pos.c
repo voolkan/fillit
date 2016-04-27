@@ -6,127 +6,164 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/15 13:06:05 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/03/20 20:12:37 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/27 19:16:22 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		check_pos(int type, char **board, unsigned int l, unsigned int c,
-				  unsigned int size)
+int		check_pos(struct s_piece elem, char **board, unsigned int size)
 {
-	if (type == 1 && c + 1 < size && l + 2 < size)
+	if (elem.type == 1 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c] == '.' && board[l][c + 1] == '.' &&
-			board[l + 1][c] == '.' && board[l + 2][c] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 2][elem.x] == '.')
 			return (1);
 	}
-	else if (type == 2 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 2 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c] == '.' && board[l + 1][c] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 1][c + 2] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 2] == '.')
 			return (1);
 	}
-	else if (type == 3 && c + 1 < size && l + 2 < size)
+	else if (elem.type == 3 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c + 1] == '.' && board[l + 1][c + 1] == '.' &&
-			board[l + 2][c] == '.' && board[l + 2][c + 1] == '.')
+		if (board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 2][elem.x] == '.' &&
+			board[elem.y + 2][elem.x + 1] == '.')
 			return (1);
 	}
-	else if (type == 4 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 4 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c] == '.' && board[l][c + 1] == '.' &&
-			board[l][c + 2] == '.' && board[l + 1][c + 2] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y][elem.x + 2] == '.' &&
+			board[elem.y + 1][elem.x + 2] == '.')
 			return (1);
 	}
-	else if (type == 5 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 5 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c + 1] == '.' && board[l + 1][c] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 1][c + 2] == '.')
+		if (board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 2] == '.')
 			return (1);
 	}
-	else if (type == 6 && c + 1 < size && l + 2 < size)
+	else if (elem.type == 6 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c] == '.' && board[l + 1][c] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 2][c] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 2][elem.x] == '.')
 			return (1);
 	}
-	else if (type == 7 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 7 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c] == '.' && board[l][c + 1] == '.' &&
-			board[l][c + 2] == '.' && board[l + 1][c + 1] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y][elem.x + 2] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.')
 			return (1);
 	}
-	else if (type == 8 && c + 1 < size && l + 2 < size)
+	else if (elem.type == 8 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c + 1] == '.' && board[l + 1][c] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 2][c + 1] == '.')
+		if (board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 2][elem.x + 1] == '.')
 			return (1);
 	}
-	else if (type == 9 && l + 3 < size)
+	else if (elem.type == 9 && elem.y + 3 < size)
 	{
-		if (board[l][c] == '.' && board[l + 1][c] == '.' &&
-			board[l + 2][c] == '.' && board[l + 3][c] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 2][elem.x] == '.' &&
+			board[elem.y + 3][elem.x] == '.')
 			return (1);
 	}
-	else if (type == 10 && c + 3 < size)
+	else if (elem.type == 10 && elem.x + 3 < size)
 	{
-		if (board[l][c] == '.' && board[l][c + 1] == '.' &&
-			board[l][c + 2] == '.' && board[l][c + 3] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y][elem.x + 2] == '.' &&
+			board[elem.y][elem.x + 3] == '.')
 			return (1);
 	}
-	else if (type == 11 && c + 1 < size && l + 1 < size)
+	else if (elem.type == 11 && elem.x + 1 < size && elem.y + 1 < size)
 	{
-		if (board[l][c] == '.' && board[l + 1][c] == '.' &&
-			board[l][c + 1] == '.' && board[l + 1][c + 1] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.')
 			return (1);
 	}
-	else if (type == 12 && c + 1 < size && l + 2 < size)
+	else if (elem.type == 12 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c] == '.' && board[l][c + 1] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 2][c + 1] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 2][elem.x + 1] == '.')
 			return (1);
 	}
-	else if (type == 13 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 13 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c] == '.' && board[l][c + 1] == '.' &&
-			board[l][c + 2] == '.' && board[l + 1][c] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y][elem.x + 2] == '.' &&
+			board[elem.y + 1][elem.x] == '.')
 			return (1);
 	}
-	else if (type == 14 && c + 1 < size && l + 2 < size)
+	else if (elem.type == 14 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c] == '.' && board[l + 1][c] == '.' &&
-			board[l + 2][c] == '.' && board[l + 2][c + 1] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 2][elem.x] == '.' &&
+			board[elem.y + 2][elem.x + 1] == '.')
 			return (1);
 	}
-	else if (type == 15 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 15 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c + 2] == '.' && board[l + 1][c] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 1][c + 2] == '.')
+		if (board[elem.y][elem.x + 2] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 2] == '.')
 			return (1);
 	}
-	else if (type == 16 && c + 1 < size && l + 2 < size)
+	else if (elem.type == 16 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c + 1] == '.' && board[l + 1][c] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 2][c] == '.')
+		if (board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 2][elem.x] == '.')
 			return (1);
 	}
-	else if (type == 17 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 17 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c] == '.' && board[l][c + 1] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 1][c + 2] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 1][elem.x + 2] == '.')
 			return (1);
 	}
-	else if (type == 18 && c + 1 < size && l + 2 < size)
+	else if (elem.type == 18 && elem.x + 1 < size && elem.y + 2 < size)
 	{
-		if (board[l][c] == '.' && board[l + 1][c] == '.' &&
-			board[l + 1][c + 1] == '.' && board[l + 2][c + 1] == '.')
+		if (board[elem.y][elem.x] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.' &&
+			board[elem.y + 2][elem.x + 1] == '.')
 			return (1);
 	}
-	else if (type == 19 && c + 2 < size && l + 1 < size)
+	else if (elem.type == 19 && elem.x + 2 < size && elem.y + 1 < size)
 	{
-		if (board[l][c + 1] == '.' && board[l][c + 2] == '.' &&
-			board[l + 1][c] == '.' && board[l + 1][c + 1] == '.')
+		if (board[elem.y][elem.x + 1] == '.' &&
+			board[elem.y][elem.x + 2] == '.' &&
+			board[elem.y + 1][elem.x] == '.' &&
+			board[elem.y + 1][elem.x + 1] == '.')
 			return (1);
 	}
 	return (-1);

@@ -6,12 +6,11 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/22 00:12:29 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/27 16:53:00 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "stdio.h" //
 
 unsigned int	get_minsize(unsigned int nbr_pieces)
 {
@@ -43,14 +42,11 @@ char			**create_board(unsigned int board_size)
 void			free_board(char **board, int n)
 {
 	int i;
-//	printf("in free : n = %i\n", n);
-	
+
 	i = 0;
 	while (i < n)
 	{
-//		printf("in free : i = %i\n", i);
 		free(board[i]);
-//		ft_putendl("free done");
 		i++;
 	}
 	free(board);
@@ -63,8 +59,6 @@ void			print(char **board, unsigned int size)
 	i = 0;
 	while (i < size)
 	{
-//		ft_putnbr(i);
-//		ft_putstr(": ");
 		ft_putendl(board[i]);
 		i++;
 	}

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tabtab.c                                           :+:      :+:    :+:   */
+/*   check_argc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/02 12:49:54 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/27 16:56:55 by theherbr         ###   ########.fr       */
+/*   Created: 2016/04/27 16:53:46 by theherbr          #+#    #+#             */
+/*   Updated: 2016/04/27 17:05:58 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**tabtab(char *s, int nbr_pieces)
+void	check_argc(int argc)
 {
-	char			**tab;
-	unsigned int	i;
-
-	i = 0;
-	tab = (char **)malloc(sizeof(char *) * (nbr_pieces));
-	if (!tab)
-		error("can't allocate tabtab\n");
-	while (i < nbr_pieces)
+	if (argc != 2)
 	{
-		tab[i] = ft_strsub(s, (21 * i), 20);
-		i++;
+		ft_putendl("usage: fillit input_file");
+		exit(1);
 	}
-	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 15:55:55 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/26 16:58:25 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/27 16:56:23 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		check_nl(char *s)
 	return (0);
 }
 
-void	error()
+void	error(void)
 {
 	ft_putstr("error\n");
 	exit(1);
@@ -62,13 +62,4 @@ void	check_extra_nl(char *board, int nbr_pieces)
 {
 	if (board[nbr_pieces * 21 - 1] == '\n')
 		error();
-}
-
-void	check_argc(int argc)
-{
-	if (argc != 2)
-	{
-		ft_putendl("usage: fillit input_file");
-		exit(1);
-	}
 }

@@ -6,146 +6,131 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/08 15:09:35 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/08 15:50:37 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/27 19:47:00 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**fill_pos(int type, char **board, unsigned int l, unsigned int c, char letter)
+void	fill_pos8(struct s_piece elem, char **board, char letter)
 {
-	if (type == 1)
+	if (elem.type == 8)
 	{
-		board[l][c] = letter;
-		board[l][c + 1] = letter;
-		board[l + 1][c] = letter;
-		board[l + 2][c] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
+		board[elem.y + 2][elem.x + 1] = letter;
 	}
-	if (type == 2)
+	if (elem.type == 9)
 	{
-		board[l][c] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 1][c + 2] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 2][elem.x] = letter;
+		board[elem.y + 3][elem.x] = letter;
 	}
-	if (type == 3)
+	if (elem.type == 10)
 	{
-		board[l][c + 1] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 2][c] = letter;
-		board[l + 2][c + 1] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y][elem.x + 2] = letter;
+		board[elem.y][elem.x + 3] = letter;
 	}
-	if (type == 4)
+}
+
+void	fill_pos11(struct s_piece elem, char **board, char letter)
+{
+	if (elem.type == 11)
 	{
-		board[l][c] = letter;
-		board[l][c + 1] = letter;
-		board[l][c + 2] = letter;
-		board[l + 1][c + 2] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
 	}
-	if (type == 5)
+	if (elem.type == 12)
 	{
-		board[l][c + 1] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 1][c + 2] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
+		board[elem.y + 2][elem.x + 1] = letter;
 	}
-	if (type == 6)
+	if (elem.type == 13)
 	{
-		board[l][c] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 2][c] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y][elem.x + 2] = letter;
+		board[elem.y + 1][elem.x] = letter;
 	}
-	if (type == 7)
+}
+
+void	fill_pos14(struct s_piece elem, char **board, char letter)
+{
+	if (elem.type == 14)
 	{
-		board[l][c] = letter;
-		board[l][c + 1] = letter;
-		board[l][c + 2] = letter;
-		board[l + 1][c + 1] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 2][elem.x] = letter;
+		board[elem.y + 2][elem.x + 1] = letter;
 	}
-	if (type == 8)
+	if (elem.type == 15)
 	{
-		board[l][c + 1] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 2][c + 1] = letter;
+		board[elem.y][elem.x + 2] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x + 2] = letter;
 	}
-	if (type == 9)
+	if (elem.type == 16)
 	{
-		board[l][c] = letter;
-		board[l + 1][c] = letter;
-		board[l + 2][c] = letter;
-		board[l + 3][c] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
+		board[elem.y + 2][elem.x] = letter;
 	}
-	if (type == 10)
+}
+
+void	fill_pos17(struct s_piece elem, char **board, char letter)
+{
+	if (elem.type == 17)
 	{
-		board[l][c] = letter;
-		board[l][c + 1] = letter;
-		board[l][c + 2] = letter;
-		board[l][c + 3] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x + 2] = letter;
 	}
-	if (type == 11)
+	if (elem.type == 18)
 	{
-		board[l][c] = letter;
-		board[l + 1][c] = letter;
-		board[l][c + 1] = letter;
-		board[l + 1][c + 1] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
+		board[elem.y + 2][elem.x + 1] = letter;
 	}
-	if (type == 12)
+	if (elem.type == 19)
 	{
-		board[l][c] = letter;
-		board[l][c + 1] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 2][c + 1] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y][elem.x + 2] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 1][elem.x + 1] = letter;
 	}
-	if (type == 13)
+}
+
+void	fill_pos(struct s_piece elem, char **board, char letter)
+{
+	if (elem.type == 1)
 	{
-		board[l][c] = letter;
-		board[l][c + 1] = letter;
-		board[l][c + 2] = letter;
-		board[l + 1][c] = letter;
+		board[elem.y][elem.x] = letter;
+		board[elem.y][elem.x + 1] = letter;
+		board[elem.y + 1][elem.x] = letter;
+		board[elem.y + 2][elem.x] = letter;
 	}
-	if (type == 14)
-	{
-		board[l][c] = letter;
-		board[l + 1][c] = letter;
-		board[l + 2][c] = letter;
-		board[l + 2][c + 1] = letter;
-	}
-	if (type == 15)
-	{
-		board[l][c + 2] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 1][c + 2] = letter;
-	}
-	if (type == 16)
-	{
-		board[l][c + 1] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 2][c] = letter;
-	}
-	if (type == 17)
-	{
-		board[l][c] = letter;
-		board[l][c + 1] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 1][c + 2] = letter;
-	}
-	if (type == 18)
-	{
-		board[l][c] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-		board[l + 2][c + 1] = letter;
-	}
-	if (type == 19)
-	{
-		board[l][c + 1] = letter;
-		board[l][c + 2] = letter;
-		board[l + 1][c] = letter;
-		board[l + 1][c + 1] = letter;
-	}
-	return (board);
+	else if (elem.type < 5)
+		fill_pos2(elem, board, letter);
+	else if (elem.type < 8)
+		fill_pos5(elem, board, letter);
+	else if (elem.type < 11)
+		fill_pos8(elem, board, letter);
+	else if (elem.type < 14)
+		fill_pos11(elem, board, letter);
+	else if (elem.type < 17)
+		fill_pos14(elem, board, letter);
+	else
+		fill_pos17(elem, board, letter);
 }
