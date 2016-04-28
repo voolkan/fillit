@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 12:49:54 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/27 16:56:55 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/28 15:51:20 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	**tabtab(char *s, int nbr_pieces)
 {
-	char			**tab;
-	unsigned int	i;
+	char	**tab;
+	int		i;
 
 	i = 0;
 	tab = (char **)malloc(sizeof(char *) * (nbr_pieces));

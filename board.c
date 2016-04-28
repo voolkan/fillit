@@ -6,7 +6,7 @@
 /*   By: theherbr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 16:30:34 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/27 16:53:00 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/28 15:50:07 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ unsigned int	get_minsize(unsigned int nbr_pieces)
 
 char			**create_board(unsigned int board_size)
 {
-	char	**board;
-	int		i;
+	char			**board;
+	unsigned int	i;
 
 	i = 0;
 	board = (char **)malloc(sizeof(char *) * (board_size + 1));

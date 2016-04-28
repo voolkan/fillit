@@ -6,7 +6,7 @@
 /*   By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 00:10:33 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/27 17:41:11 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/28 14:01:57 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		main(int argc, char **argv)
 {
 	char				*raw_board;
-	char				letter;
 	int					c;
 	int					nbr_pieces;
 	char				**tab;
@@ -35,36 +34,9 @@ int		main(int argc, char **argv)
 	tab_pieces = NULL;
 	tab_pieces = malloc(nbr_pieces * sizeof(struct s_piece));
 	if (!tab_pieces)
-		error("alloc tab_pieces");
-	letter = 'A';
-	while (c < nbr_pieces)
-	{
-		tab_pieces[c].type = find_tetri_type(tab[c]);
-		tab_pieces[c].letter = letter;
-		letter++;
-		c++;
-	}
+		error();
+	fill_struct(tab_pieces, nbr_pieces, tab);
 	free(raw_board);
 	solve(tab_pieces, nbr_pieces);
 	return (0);
-}
-
-void	solve(struct s_piece *tab_pieces, int nbr_pieces)
-{
-	int				tab_i;
-	unsigned int	size;
-	char			**board;
-
-	tab_i = 0;
-	size = get_minsize(nbr_pieces);
-	board = create_board(size);
-	board = dotify(board, size);
-	while (backtrack(board, size, tab_pieces, tab_i, nbr_pieces) == 2)
-	{
-		tab_i = 0;
-		free_board(board, size);
-		size++;
-		board = create_board(size);
-		board = dotify(board, size);
-	}
 }
