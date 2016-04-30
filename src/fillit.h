@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/28 13:56:53 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/30 19:33:07 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FILLIT_H
 
 # include <unistd.h>
-# include <stdlib.h>
+//# include <stdlib.h>
 # include <libft.h>
 
 struct			s_piece {
@@ -22,6 +22,11 @@ struct			s_piece {
 	char			letter;
 	unsigned int	x;
 	unsigned int	y;
+};
+
+struct			s_norme {
+	int				nbr_pieces;
+	unsigned int	size;
 };
 
 void			fill_struct(struct s_piece *tab_pieces,
@@ -58,7 +63,6 @@ void			erase_pos46(int type, char **board,
 							unsigned int l, unsigned int c);
 void			free_board(char **board, int nbr_pieces);
 void			solve(struct s_piece *tab_pieces, int nbr_pieces);
-int				backtrack(char **board, unsigned int size,
-						  struct s_piece *tab_pieces, int tab_i,
-						  int nbr_pieces);
+int				backtrack(char **board, struct s_norme nrm,
+						struct s_piece *tab_pieces, int tab_i);
 #endif

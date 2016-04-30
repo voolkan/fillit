@@ -1,6 +1,7 @@
 *~
 fillit
 a.out
+*.o
 */*.o
 #*#
 .dSYM
