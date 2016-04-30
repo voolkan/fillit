@@ -6,7 +6,7 @@
 /*   By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/28 14:01:37 by theherbr          #+#    #+#             */
-/*   Updated: 2016/04/30 19:38:41 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/04/30 20:09:23 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	solve(struct s_piece *tab_pieces, int nbr_pieces)
 	char			**board;
 	struct s_norme	nrm;
 
-	ft_putendl("coucou");
 	tab_i = 0;
 	nrm.size = get_minsize(nbr_pieces);
 	board = create_board(nrm.size);
