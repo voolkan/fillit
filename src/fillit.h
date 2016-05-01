@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/30 19:33:07 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/05/01 15:48:51 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FILLIT_H
 
 # include <unistd.h>
-//# include <stdlib.h>
 # include <libft.h>
 
 struct			s_piece {
