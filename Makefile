@@ -6,7 +6,7 @@
 #    By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/28 14:50:14 by theherbr          #+#    #+#              #
-#    Updated: 2016/04/30 18:35:28 by theherbr         ###   ########.fr        #
+#    Updated: 2016/05/01 15:54:51 by theherbr         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,7 +20,7 @@ OBJ = *.o
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRC)
 	gcc $(FLAGS) -c $(SRC) -I libft/includes/
 	gcc -o $(NAME) $(OBJ) -L libft/ -lft
 

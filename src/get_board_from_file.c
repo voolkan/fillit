@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/04/30 18:11:56 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/05/01 16:49:58 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static size_t	count_chars(char *path)
 	total_chars = 0;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		error("file not found or not readable\n");
+		error();
 	buffer = (char *)ft_memalloc(sizeof(char) * BUFF_SIZE);
 	if (!buffer)
-		error("can't allocate memory for buffer\n");
+		error();
 	bytes_count = 1;
 	while (bytes_count > 0)
 	{
@@ -37,7 +37,7 @@ static size_t	count_chars(char *path)
 		total_chars += bytes_count;
 	}
 	if (bytes_count < 0)
-		error("file read error");
+		error();
 	close(fd);
 	ft_memdel((void **)&buffer);
 	return (total_chars);
@@ -54,7 +54,7 @@ static size_t	cpy_chars(char *path, char *board)
 	bytes_count = 1;
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
-		error("file not found or not readable\n");
+		error();
 	while (bytes_count > 0)
 	{
 		bytes_count = read(fd, buffer, BUFF_SIZE);
@@ -78,7 +78,7 @@ char			*get_board_from_file(char *path, int *nbr_pieces)
 	*nbr_pieces = 0;
 	board = (char *)ft_memalloc(sizeof(char) * (total_chars + 1));
 	if (!board)
-		error("can't allocate memory for board\n");
+		error();
 	*nbr_pieces = cpy_chars(path, board);
 	if (nbr_pieces == 0)
 		error();
