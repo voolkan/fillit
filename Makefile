@@ -6,7 +6,7 @@
 #    By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/28 14:50:14 by theherbr          #+#    #+#              #
-#    Updated: 2016/05/09 21:35:04 by theherbr         ###   ########.fr        #
+#    Updated: 2016/05/10 17:48:16 by theherbr         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -28,7 +28,8 @@ SRC = ./src/board.c \
 ./src/get_board_from_file.c \
 ./src/tabtab.c \
 ./src/solve.c \
-./src/find_tetri_type.c
+./src/find_tetri_type.c \
+./src/check_empty_file.c
 
 OBJ = ./board.o \
 ./check_argc.o \
@@ -44,7 +45,8 @@ OBJ = ./board.o \
 ./get_board_from_file.o \
 ./tabtab.o \
 ./solve.o \
-./find_tetri_type.o
+./find_tetri_type.o \
+./check_empty_file.o
 
 all: $(NAME)
 

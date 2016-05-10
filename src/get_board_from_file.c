@@ -6,12 +6,10 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/17 14:32:33 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/05/01 16:49:58 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/05/10 17:50:34 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
 #include "fillit.h"
 
 #define BUFF_SIZE 21

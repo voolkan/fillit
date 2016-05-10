@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/05/01 15:48:51 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/05/10 17:51:01 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <libft.h>
+# include <fcntl.h>
 
 struct			s_piece {
 	int				type;
@@ -64,4 +65,5 @@ void			free_board(char **board, int nbr_pieces);
 void			solve(struct s_piece *tab_pieces, int nbr_pieces);
 int				backtrack(char **board, struct s_norme nrm,
 						struct s_piece *tab_pieces, int tab_i);
+void			check_empty_file(char *path);
 #endif
