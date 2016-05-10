@@ -6,7 +6,7 @@
 /*   By: theherbr <theherbr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/25 00:10:33 by theherbr          #+#    #+#             */
-/*   Updated: 2016/05/10 17:54:27 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/05/10 18:38:57 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int		main(int argc, char **argv)
 	char				**tab;
 	struct s_piece		*tab_pieces;
 
-	check_argc(argc);
-	check_empty_file(argv[1]);
+	check_argc_or_empty(argc, argv[1]);
 	raw_board = get_board_from_file(argv[1], &nbr_pieces);
 	check_extra_nl(raw_board, nbr_pieces);
 	tab = tabtab(raw_board, nbr_pieces);

@@ -6,7 +6,7 @@
 /*   By: scluzeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 17:37:41 by scluzeau          #+#    #+#             */
-/*   Updated: 2016/05/10 17:51:01 by theherbr         ###   ########.fr       */
+/*   Updated: 2016/05/10 18:31:23 by theherbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int				check_diez(char *s);
 void			check_format(char *board);
 void			check_extra_nl(char *board, int nbr_pieces);
 void			error();
-void			check_argc(int argc);
+void			check_argc_or_empty(int argc, char *path);
 char			*get_board_from_file(char *path, int *nbr_pieces);
 char			**tabtab(char *s, int nbr_pieces);
 unsigned int	get_minsize(unsigned int nbr_pieces);
@@ -65,5 +65,4 @@ void			free_board(char **board, int nbr_pieces);
 void			solve(struct s_piece *tab_pieces, int nbr_pieces);
 int				backtrack(char **board, struct s_norme nrm,
 						struct s_piece *tab_pieces, int tab_i);
-void			check_empty_file(char *path);
 #endif
